@@ -48,23 +48,6 @@ public class AlgorithmActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.dark:
-                if (item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                setTheme(R.style.DarkUI);
-                recreate();
-                return true;
-
-            case R.id.light:
-                if (item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                setTheme(R.style.LightUI);
-                recreate();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

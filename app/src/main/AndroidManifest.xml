@@ -19,8 +19,7 @@
         <activity
             android:name=".AlgorithmActivity"
             android:label="@string/title_activity_algorithm"
-            android:parentActivityName="in.kicka55studios.algoplexity.MainActivity"
-            android:theme="@style/LightUI">
+            android:parentActivityName="in.kicka55studios.algoplexity.MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
