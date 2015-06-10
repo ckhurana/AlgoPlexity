@@ -11,4 +11,11 @@
         <item name="android:textColor">@color/primary_text_default_material_light</item>
     </style>
 
+    <style name="AppThemeDark" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
 </resources>

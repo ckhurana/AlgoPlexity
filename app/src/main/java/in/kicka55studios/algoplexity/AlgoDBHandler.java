@@ -39,8 +39,8 @@ public class AlgoDBHandler extends SQLiteOpenHelper {
         int number_of_algos = 9;
 
         Algorithm[] algo = new Algorithm[number_of_algos];
-        algo[0] = new Algorithm("Linear Search", "For an array of \'n\' elements.", "Order(n)", "Order(1)");
-        algo[1] = new Algorithm("Binary Search", "For an array of \'n\' elements.", "Order(log(n))", "Order(1)");
+        algo[0] = new Algorithm("Linear Search", "For an array of \'n\' elements.", "Order(n)", "Order(n)");
+        algo[1] = new Algorithm("Binary Search", "For a sorted array of \'n\' elements.", "Order(log(n))", "Order(log(n))");
         algo[2] = new Algorithm("Bubble Sort", "For an array of \'n\' elements.", "Order(n^2)", "Order(n^2)");
         algo[3] = new Algorithm("Insertion Sort", "For an array of \'n\' elements.", "Order(n^2)", "Order(n^2)");
         algo[4] = new Algorithm("Merge Sort", "For an array of \'n\' elements.", "Order(n*log(n))", "Order(n*log(n))");
