@@ -4,4 +4,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_algorithm">Algorithm Info</string>
+    <string name="title_activity_add_new">AddNewActivity</string>
+    <string name="add_new_string">Add New</string>
+    <string name="avg_case_string">Average Case</string>
+    <string name="worst_case_string">Worst Case</string>
+    <string name="delete_algo">Delete</string>
 </resources>

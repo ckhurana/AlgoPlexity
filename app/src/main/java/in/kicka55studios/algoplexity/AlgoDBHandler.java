@@ -79,6 +79,25 @@ public class AlgoDBHandler extends SQLiteOpenHelper {
         return algoList;
     }
 
+    public void addNewAlgo(Algorithm algo) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ALGONAME, algo.get_algoname());
+        values.put(COLUMN_DESC, algo.get_desc());
+        values.put(COLUMN_AVGCASE, algo.get_avgcase());
+        values.put(COLUMN_WORSTCASE, algo.get_worstcase());
+        db.insert(TABLE_AlGORITHMS, null, values);
+        db.close();
+    }
+
+    public void resetDb() {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "DROP TABLE IF EXISTS " + TABLE_AlGORITHMS + ";";
+        db.execSQL(query);
+        onCreate(db);
+        db.close();
+    }
+
     public Algorithm getInfo(String algoName) {
         SQLiteDatabase db = getWritableDatabase();
         Algorithm algoData = new Algorithm();
@@ -91,6 +110,7 @@ public class AlgoDBHandler extends SQLiteOpenHelper {
                     c.getString(c.getColumnIndex(COLUMN_AVGCASE)),
                     c.getString(c.getColumnIndex(COLUMN_WORSTCASE)));
         }
+        db.close();
         return algoData;
     }
 
@@ -98,5 +118,11 @@ public class AlgoDBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTIS " + TABLE_AlGORITHMS + ";");
         onCreate(db);
+    }
+
+    public void deleteAlgo(String algorithmName) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_AlGORITHMS + " WHERE " + COLUMN_ALGONAME + " = \"" + algorithmName + "\";");
+        db.close();
     }
 }

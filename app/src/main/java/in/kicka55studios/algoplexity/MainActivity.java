@@ -3,6 +3,9 @@ package in.kicka55studios.algoplexity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,5 +44,30 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.addNewAlgo:
+                startActivity(new Intent(this, AddNewActivity.class));
+                return true;
+            case R.id.resetDb:
+                dbHandler = new AlgoDBHandler(this, null, null, 1);
+                dbHandler.resetDb();
+                recreate();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

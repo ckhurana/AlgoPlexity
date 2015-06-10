@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class AlgorithmActivity extends AppCompatActivity {
 
     TextView algoNameText, descText, avgText, worstText;
+    Algorithm algo;
     AlgoDBHandler dbHandler;
 
     @Override
@@ -21,7 +22,7 @@ public class AlgorithmActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         dbHandler = new AlgoDBHandler(this, null, null, 1);
-        Algorithm algo = dbHandler.getInfo(intent.getStringExtra(MainActivity.EXTRA_MESSAGE));
+        algo = dbHandler.getInfo(intent.getStringExtra(MainActivity.EXTRA_MESSAGE));
 
         algoNameText = (TextView) findViewById(R.id.algoNameText);
         descText = (TextView) findViewById(R.id.descText);
@@ -48,6 +49,12 @@ public class AlgorithmActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.delete_algo:
+                AlgoDBHandler dbHandler = new AlgoDBHandler(this, null, null, 1);
+                dbHandler.deleteAlgo(algo.get_algoname());
+                onNavigateUp();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
